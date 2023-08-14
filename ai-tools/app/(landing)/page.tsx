@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -17,6 +18,7 @@ export default function LandingPage() {
                         Register
                     </Button>
                 </Link>
+                <UserButton afterSignOutUrl="/" />
             </div>
         </div>
     );
