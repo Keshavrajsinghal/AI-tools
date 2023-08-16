@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { ChatBubbleIcon } from "@radix-ui/react-icons";
+import { MagnifyingGlassIcon, GearIcon, LoopIcon, GitHubLogoIcon, ChatBubbleIcon, CameraIcon, VideoIcon, LayersIcon } from '@radix-ui/react-icons'
+import { useRouter } from "next/navigation";
 
 const tools = [
     {
@@ -11,10 +12,40 @@ const tools = [
         color: "text-violet-500",
         bgColor: "bg-violet-500/10",
         href: "/conversation"
-    }
+    },
+    {
+        label: "Music Generation",
+        icon: LoopIcon, // replace with a radix icon
+        color: "text-emerald-500",
+        bgColor: "bg-violet-500/10",
+        href: "/music"
+    },
+    {
+        label: "Image Generation",
+        icon: CameraIcon, // replace with a radix icon
+        color: "text-pink-500",
+        bgColor: "bg-pink-500/10",
+        href: "/image"
+    },
+    {
+        label: "Video Generation",
+        icon: VideoIcon, // replace with a radix icon
+        color: "text-orange-500",
+        bgColor: "bg-orange-500/10",
+        href: "/video"
+    },
+    {
+        label: "Code Generation",
+        icon: GitHubLogoIcon, // replace with a radix icon
+        color: "text-green-500",
+        bgColor: "bg-green-500/10",
+        href: "/code"
+    },
+
 ]
 
 export default function DashboardPage() {
+    const router = useRouter();
     return (
         <div>
             <div className="mb-8 space-y-4">
@@ -28,6 +59,7 @@ export default function DashboardPage() {
             <div className="px-4 md:px-20 lg:px-32 space-y-4">
                 {tools.map((tool) => (
                     <Card
+                        onClick={() => router.push(tool.href)}
                         key={tool.href}
                         className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
                     >
