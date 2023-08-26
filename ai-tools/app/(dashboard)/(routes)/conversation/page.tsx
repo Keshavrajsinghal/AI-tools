@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios"
 import { Heading } from '@/components/heading'
 import { ChatBubbleIcon } from '@radix-ui/react-icons'
 import React from 'react'
@@ -21,7 +22,13 @@ const ConversationPage = () => {
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        try {
+
+        } catch (error: any) {
+            console.log(error);
+        } finally {
+
+        }
     }
 
     return (
